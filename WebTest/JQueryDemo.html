@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--JQuery引入-->
+    <script src="../jquery-3.6.0.min.js"></script>
+    <!--入口函数-->
+    <script>
+         window.onload=function () {
+             var oDiv=document.getElementById('div01')
+             alert("原生的获取的div"+oDiv)
+         }
+         //比原生的更快
+         $(document).ready(function () {
+             var $div=$('#div01');
+             alert('JQuery获取的div'+$div);
+         })
+         //简化写法
+        //$function(){}
+         // *******选择器*********
+        //$('#myID') 选择id为myId的标签选择器
+         $('.myClass') //选择class为myClass的类选择器
+         $('li') //选择所有的li标签
+         $('#ul1 li span') //选择id为ul1标签下li标签下的span标签   层级
+         $('input[name=first]') //选择name属性=frist的input标签 属性名
+        //可以使用.length判断标签是否选择成功
+        //*******选择集过滤hans(选择器名称) eq(索引)******
+            //var $div=$("div").has("#mytext"); //所有div标签中包含id是mytext的
+            //$div.css({"background":"red"});
+
+            //var $div=$("div").eq(1) //第一个div
+
+         $(function(){
+             var $div=$('#div2-1');
+        //$('#box').prev()//选择id是box元素的上一个同级元素
+        $div.prev().css({'color':'red'});
+        $div.prevAll().css({'text-indent':50});//选择id是box元素的上面所有同级元素
+        $div.next().css({'color':'blue'}); //选择id是box元素的下一个同级元素
+        $div.nextAll().css({'text-indent':80});//选择下面所有的同级元素
+        $div.siblings().css({'text-decoration':'underline'}); //其他同级元素
+        $div.parent().css({'background':'gray'});//父元素
+        $div.children().css({'color':'red'});//所有子元素
+        $div.find('.sp02').css({'font-size':30});//选择class为.sp02的元素
+        //----------事件代理-------
+        $list = $('#list');
+        // 父元素ul 来代理 子元素li的点击事件
+        $list.delegate('li', 'click', function() {
+        // $(this)表示当前点击的子元素对象
+        $(this).css({background:'red'});
+        });
+        //----------事件代理-------
+        });
+
+        alert($div.html());//获取标签的html内容
+        //  设置标签的html内容，之前的内容会清除
+        //$div.html("<span style='color:red'>你好</span>");
+         //  追加html内容
+        //$div.append("<span style='color:red'>你好</span>");
+         // 获取元素属性
+         //设置标签的其它属性 使用prop方法
+        var sId = $a.prop("id");
+        alert(sId);
+        $a.prop({"href":"http://www.baidu.com","title":'这是去到百度的链接',"class":"a01"});
+        //  获取value属性
+        // var sValue = $input.prop("value");
+         // 获取value属性使用val()方法的简写方式
+        var sValue = $input.val();
+        //****事件*****
+        $li.click(function () {
+             $(this).css({'background':'gold'});
+        });//鼠标单击
+        blur()//元素失去焦点
+        focus()//元素获得焦点
+        mouseover()//鼠标进入或者进入子元素
+        mouseout()//鼠标离开或者离开子元素
+        ready() //DOM加载完成
+        //$(this) 指的是当前发生事件的jquery对象 this指的是当前发生事件的对象，但是它是一个原生js对象
+        //******事件代理******
+         // 事件代理就是利用事件冒泡的原理(事件冒泡就是事件会向它的父级一级一级传递),把事件加到父级上，通过判断事件来源，执行相应的子元素的操作
+         // 极大减少事件绑定次数，提高性能；其次可以让新加入的子元素也可以拥有相同的操作。
+         //当点击子元素div，它的点击事件会向它父元素传递，也会触发了父元素的点击事件，这就是事件冒泡。
+         //使用场景当多个相同的子元素绑定同一个事件，可以使用事件代理
+         //delegate(childSelector,event,function) //子元素选择器，事件名称，触发的函数
+        //ajax 发送异步http请求，和后台通信进行数据获取，进行局部刷新
+        $.ajax({
+            //请求地址
+            url:'http://t.weather.sojson.com/api/weather/city/101010100',
+            type:'GET', //请求方式GET或者POST
+             dataType:"JSON",//返回数据格式 JSON,HTML,XML,TEXT
+            //data:, 4设置发送给服务器的数据，没有则不需要设置
+            sussess:function (response) {
+                console.log(response);
+            },//5设置请求成功后的回调函数
+            error:function () {
+                alert("请求失败")；
+            },//6请求失败回调函数
+            async:true //7设置是否异步，默认True ，一般不用写 False  同步，必须完成上一个ajax请求下一个才可以请求
+        });
+        //简写方式$.get或则$.post方式
+         /*
+         1. url 请求地址
+         2. data 设置发送给服务器的数据, 没有参数不需要设置
+         3. success 设置请求成功后的回调函数data 请求的结果数据 status 请求的状态信息, 比如: "success"xhr 底层发送http请求 XMLHttpRequest对象
+         4. dataType 设置返回的数据格式，常用的是'json'格式, 默认智能判断数据格式 xml html text jsoin
+         5.errror 表示错误异常处理
+        */
+
+        $.get("http://t.weather.sojson.com/api/weather/city/101010100", function(dat,status){
+            console.log(dat);
+            console.log(status);
+            alert(dat);
+        }).error(function(){
+            alert("网络异常");
+        });
+         $.post("test.php", {"func": "getNameAndTime"}, function(data){
+            alert(data.name);
+            console.log(data.time);
+        }, "json").error(function(){
+            alert("网络异常");
+        });
+
+
+
+
+        </script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<H1>标题</H1>
+<div id="div01">这个是一个div
+    <span>sdfa</span>
+    <label>dd</label>
+</div>
+<div id="div02">
+      <h2>这是第一个h2标签</h2>
+    <p>这是第一个段落</p>
+    <div id="div2-1">这是一个<span>div</span><span class="sp02">第二个span</span></div>
+    <h2>这是第二个h2标签</h2>
+    <p>这是第二个段落</p>
+
+    这是第二个div</div>
+<ul id="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+
+</body>
+</html>

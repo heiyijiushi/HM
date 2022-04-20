@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src ="static/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+           $.get("/center.html",function (data) {
+               alter(data);
+               console.log(data)
+           },"json")
+        });
+
+    </script>
+
+    <title>Title</title>
+</head>
+<body>
+hello
+</body>
+</html>

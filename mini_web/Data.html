@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="static/jquery-3.6.0.min.js"></script>
+
+
+        <script>
+
+         $(document).ready(function () {
+                    alert("AAAAA");
+                    $('#btn').click ($get("/conter.html",function (data) {
+                        alert(data);
+                    },"json"));
+
+
+
+//                        function () {
+//                       $('#btn').hide();
+//                    });
+
+        });
+
+
+
+
+//        <!--window.onload=function () {-->
+//            <!--var my_date =new Date();-->
+//            <!--var mytime=my_date.toLocaleString();-->
+//                alert(mytime);
+//            document.getElementById("timeStr").innerHTML=mytime;};
+    </script>
+    <title>Data page</title>
+</head>
+<body>
+<lable id="timeStr">客户端时间</lable>
+       <table class="table table-hover">
+            <tr>
+                    <th>股票代码</th>
+                    <th>股票简称</th>
+                    <th>涨跌幅</th>
+                    <th>换手率</th>
+                    <th>最新价(元)</th>
+                    <th>前期高点</th>
+                    <!--<th style="color:red">备注信息</th>-->
+                    <th>修改备注</th>
+                    <th>del</th>
+            </tr>
+        {%centerData%}
+        </table>
+<form>
+<input type="button" id = "btn" value="提示" />
+</form>
+</body>
+</html>

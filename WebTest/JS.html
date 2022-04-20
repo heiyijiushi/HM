@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!--javascript的3种调用方式-->
+<!--外链式-->
+<!--<script type="text/javascript"  src="static/index.js"/>-->
+<script type="text/javascript" > //内嵌式
+    alert("OK!") /*进入网页自动执行*/
+    var a="jjj"
+    //数据类型5种 number(integer,float) string boolean(bls) undefinded未初始化 null 空对象 o
+    // bject 复合类型（数组(Array)，函数fn,javascript对象object）
+    //变量命名 区分大小写，第一个字母字母下划线或美元符号，其他可以是字母数字下划线美元符号 命名方法匈牙利命名法 aNumber
+    alert(typeof (a).name)
+    //typeof(obj) 获取数据类型
+    //var oDiv=document.getElementById('div1'); //获取标签元素
+    //windows.onload=function(){} //页面加载完成执行的函数
+    //条件语句 if(){}else if(){}else{}
+    //比较运算 == 等于 ===全等于（值和类型）！=不等于 <小于 > 大于 <= 小于等于>=大于等于
+    //逻辑运算符 && || !
+    //function fnAlert(参数){代码段} //函数定义
+    //return关键字作用：返回函数中的值 执行return函数执行结束
+    //属性操作：html的属性和js里面属性大多数写法一样，但是“class” 属性写成 “className”
+            //“style” 属性里面的属性，有横杠的改成驼峰式，比如：“font-size”，改成”style.fontSize”
+            //innerHtml读取或设置标签包裹的内容 oDiv.innerHTML=<a href="www.baidu.com"/>
+    //数组操作：
+        //数组定义：// 实例化对象方式创建
+            //var aList = new Array(1,2,3);
+        // 字面量方式创建，推荐使用
+            //var aList2 = [1,2,3,'asd'];
+        //多维数组
+            //var alist=[[1,2,3],['a','b','c']]
+        //alist.length 数组长度 alist[index] 下标取值
+        //alist.push(5) 最后添加 alist.pop() 最后删除
+        //alist.splice(start,num,element1,elementN) 根据下表添加或删除元素
+        // （开始删除的索引，删除数组元素个数_可选,要插入的新元素_可选）
+    //循环 1.for(var index=;index<array.length;index++){}
+    //    2. var index=0  while(index<array.length){ 代码块  index++} 条件成立 执行
+    //    3. var index=0  do{代码块 index++}while(index<array.length) 条件不成立最少执行一次
+    //定时器  创建1：setTimeout(func[,delay,param1,param2,...]) 以指定的时间间隔（毫秒）调用一次函数的定时器
+    //       创建2：setInterval(func[,delay,param1,param2,...]) 以制定的时间间隔（毫秒）重复调用一个函数的定时器
+    //  （函数名，时间间隔默认为0，执行函数的参数）
+    //清除定时器
+                //clearTimeout(timeoutID)清除只执行一次的定时器
+                //ClearInterval(timeoutID)清除反复执行的定时器
+    //JavaScript对象 方法1：object类创建对象
+    var person= new object();
+    person.name='tom';
+    person.age=25;
+
+    person.sayName=function () {
+        alert(this.name);
+    }
+
+    //方法2对象字面量方式：
+    var person2={
+        name:"Rose",
+        age:18,
+
+        sayName:function () {
+            alert(this.name);
+        }}
+    //调用
+    person.sayName();
+
+    var sJson='{"name":"tom","age":28}'
+    var oPerson=JSON.parse(sJson); //json字符串解码成avascript
+    alert(oPerson.name)
+
+    </script>
+<head>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" name="btn1" text="按钮1">
+<!--行内式 主要用于事件-->
+<input type="button" name="btn2" text="按钮2" onclick="alert('点了一下');">
+
+
+</body>
+</html>

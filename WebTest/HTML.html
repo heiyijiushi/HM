@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style type="text/css">
+        h1{
+            color:red;
+        }
+        .con{
+            wdith:300px;
+        height:80px;
+        background:green;
+
+        }
+        .con span{
+            color:red
+
+        }
+        .con pink{color:pink}
+        .con span:hover{color:blue}
+        div{
+            background:url("image/login.png");
+            border:1px solid black;
+        }
+        table{
+            border-top:10px solid red;
+            border-left:10px solid blue;
+            border-right:10px solid green;
+            border-bottom:10px solid pink;
+            pandding:20px; /*内边距*/
+            margin：1px; /*外边距*/
+            float：left; /*左浮动*/
+        }
+        .text{
+            color:red;
+            font-size: 12px;
+            font-family:'Microsoft Yahei'; /*字体*/
+            font-weight: bold;
+            /*font-weight: normal 不加粗*/
+            line-height: 24px;/*行高*/
+            text-decoration: none; /*文字下划线*/
+            text-align: center; /*居中*/
+            text-indent:24px;/*首行缩进*/
+
+
+        }
+
+        .box1{
+            width:100px;
+            height:200px;
+            background:red;
+            /*在父级元素上设置子元素溢出部分如何显示：hidden或者auto*/
+            overflow:hidden;
+        }
+        .box2{
+            width:50px;
+            height: 300px;
+            background:blue;
+        }
+        .display-test{
+            display:none; /*隐藏元素,不占用位置*/
+        }
+        .box3{
+            display: inline; /*和其他元素一行显示，不能设置宽高*/
+
+        }
+         .box4{
+             display:block;/*单独占一行，不和其他元素一行显示*/
+
+         }
+    </style>
+    <meta charset="UTF-8">
+    <title网页标题</title>
+</head>
+<br>
+    网页显示内容
+
+    <h1 type="text/css">一级标题</h1>
+    <p>段落</p>
+    <br><!--空白标签-->
+    <hr><!--水平线-->
+    <div class="con">
+        <span>哈哈哈</span>>
+
+    <image src="image/pic.jpg" alt="图片"/>
+    <a href="http://www.baidu.com" class="pink">百度</a> <!--伪类选择器--->
+    </div>
+    <ul>
+        <li>无需列表标签1</li>
+        <li>无需列表标签2</li>
+    </ul>
+    <ol>
+        <li>有序标签1</li>
+        <li>有序标签2</li>
+    </ol>
+
+
+
+    <table border-collapse="collapse">
+
+        <tr>
+            <th>姓名</th>
+        </tr>
+        <tr>
+            <td>张三</td>
+        </tr>
+    </table>
+
+<!--表单-->
+    <from action="http://www.baidu.com",method="GET">
+        <lable >标签</lable>
+        <input type="text" class="text" name="username" value="11"/>
+        <input type="password"/>
+        <input type ="radio"/>
+        <input type="checkbox"/>
+        <input type="file">
+        <input type="submit">
+        <input type="reset">
+        <input type="button">
+        <textarea>多行文本1
+            多行文本2
+        </textarea>
+        <select > <!--下拉列表-->
+            <option>北京</option>
+            <option>上海</option>
+        </select>
+<label class="display-test">张三</label>
+    </from>
+
+<div class="box1">
+    <div class="box2">
+    </div>
+        </div>
+<label class="display-test">张三</label>
+<label >张三1</label>
+<div class="box3">张三2</div>
+<div class="box4">张三4</div>
+</body>
+</html>

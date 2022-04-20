@@ -1,0 +1,9 @@
+{
+  "name":"jack",
+  "age":29,
+  "hobby":["a","b",12], //数组格式
+  "school":{ //对象格式
+    "name":"merrimack",
+    "location":"China"
+  }
+}
