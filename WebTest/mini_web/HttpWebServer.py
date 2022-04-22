@@ -39,7 +39,7 @@ class HttpWebServer(object):
             env={
                 "request_path":request_path
             }
-            status,response_headers,response_body=minifreamwork.handle_request(env)
+            status,response_headers,response_body= minifreamwork.handle_request(env)
 
             response_line=status
             response_header=""
@@ -62,7 +62,7 @@ class HttpWebServer(object):
                 print("没有找到文件",e)
                 response_line="HTTP/1.1 404 Not Found\r\n"
                 response_head="Server: PWS1.0\r\n"
-                with open("static/error.html","rb")  as file:
+                with open("static/error.html", "rb")  as file:
                     file_data = file.read()
                 response_body=file_data
                 print("读取文件%s"%response_body)

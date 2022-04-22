@@ -63,7 +63,7 @@ def index():
     #响应头
     response_header=["Server","PWS2.0"]
     #打开模板
-    with open("Template/index.html","r") as file:
+    with open("Template/index.html", "r") as file:
         file_data=file.read()
 
     #处理后的数据，从数据库种查询，暂时用时间替代
@@ -145,7 +145,7 @@ def not_found():
 def data():
     status="HTTP/1.1 200 OK \r\n"
     response_header=[("Server","PWS2.0")]
-    with open ("Data.html","rb") as file:
+    with open ("Data.html", "rb") as file:
         file_data=file.read()
     # conn=pymysql.connect(host="localhost",database="stock_db",user="root",password="mysql",charset="utf8")
     # cursor=conn.cursor()
