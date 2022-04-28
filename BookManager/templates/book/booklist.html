@@ -4,7 +4,21 @@
     <meta charset="UTF-8">
     <title>书籍列表信息</title>
 </head>
-<body>
-
+<table><thead>
+<tr>
+    <td>序号</td>
+    <td>名称</td>
+</tr>
+</thead>
+    <tbody>
+    {%for obj in booklist%}
+        <tr>
+            <td>{{obj.id}}</td>
+            <td>{{obj.name}}</td>
+        </tr>
+    {%endfor%}
+</tbody>
+</table>
+{#{{%context%}}#}
 </body>
 </html>

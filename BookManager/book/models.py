@@ -8,6 +8,7 @@ class BookInfo(models.Model):
     readcount=models.IntegerField(default=0,verbose_name="阅读量")
     commentcount=models.IntegerField(default=0,verbose_name="评论量")
     is_delete=models.BooleanField(default=False,verbose_name="逻辑删除")
+    #objects =models.Manager
     class Meta:
         db_table='bookinfo'
         verbose_name="图书"
@@ -17,6 +18,16 @@ class BookInfo(models.Model):
 
 #人物列表信息模型类
 class PeopleInfo(models.Model):
+    class Meta:
+        db_table='peopleinfo'
+        verbose_name='人物信息'
+
+    def __str__(self):
+        '''将模型类以字符串形式输出'''
+        return self.name
+
+    #objects = models.Manager
+
     GENDER_CHOICES=((0,'male'),(1,'female'))
 
     #名字
@@ -29,10 +40,5 @@ class PeopleInfo(models.Model):
 
     is_delete=models.BooleanField(default=False,verbose_name="逻辑删除")
 
-    class Mete:
-        db_table='peopleinfo'
-        verbose_name='人物信息'
 
-    def __str__(self):
-        '''将模型类以字符串形式输出'''
-        return self.name
+
