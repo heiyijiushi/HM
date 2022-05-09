@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<!-- 开发环境版本 -->
+<script src="https://cdn.staticfile.org/vue/2.6.14/vue.js"></script>
+</head>
+<body>
+<div id="app">
+<span>{{ message }}</span> <br>
+<span :title="ads">鼠标悬停几秒钟查看此处动态绑定的提示信息！</span> <br>
+<a :href="home" target="_blank" title="惊喜">戳我有惊喜</a> <br>
+    <a href ="" v-if="boolH==1">个人中心</a>
+    <a href ="" v-else-if="boolH==2">登陆</a>
+        <a href ="" v-else>没了</a>
+    <a href="" v-if="b2">测试display</a>
+    <a href="" v-show="b2">不显示的</a>
+    <p v-if="seen">现在你看到我了</p>
+    <ol v-on:click="add">
+        <li v-for="todo,index in todos"> <!--v-for循环  index索引-->
+            {{todo.text}}-{{index}}
+        </li>
+    </ol>
+</div>
+</body>
+<script>
+
+    var counter=1
+    var app  = new Vue({ <!--通过Vue函数创建一个新的Vue实例-->
+        el:'#app', <!--el实例 用于管理el选中的元素和后代元素-->
+        data:{
+        message:'HelloWorld',<!--数据绑定-->
+        ads:"页面加载于"+ new Date().toDateString(),<!--自动省略v-bind绑定-->
+            href:"http://www.baidu.com",
+            seen:true,
+            boolH:3,
+            b2:false,
+            todos:[
+        {text:"AAAA"},
+        {text:"BBBB"},
+        {text:"CCC"}
+        }
+]       method:{
+            add:function () {
+                counter+=1
+                alter(this.counter)
+            }
+    }})
+    </script>
+</html>
